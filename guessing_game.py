@@ -2,6 +2,10 @@ from random import randint
 
 
 def new_game():
+    """
+    Game function
+    :return: None
+    """
     computer_number = randint(1, 100)
     guess = lucky_guess()
     while guess != computer_number:
@@ -14,6 +18,11 @@ def new_game():
 
 
 def lucky_guess():
+    """
+    Gets guess number from user.
+    While loop with try/except allows to retry entering the number if entered wrong type, for example string.
+    :return: user's guess as an int
+    """
     while True:
         try:
             user_guess = int(input("Guess the number: \n"))
