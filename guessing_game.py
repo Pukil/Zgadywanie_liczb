@@ -1,16 +1,25 @@
 from random import randint
 
-computer_guess = randint(1, 100)
 
-while True:
-    try:
-        guess = int(input("Guess the number: \n"))
-        if guess < computer_guess:
-            print("Too small!\n")
-        elif guess > computer_guess:
-            print("Too big!\n")
+def new_game():
+    computer_number = randint(1, 100)
+    guess = lucky_guess()
+    while guess != computer_number:
+        if guess < computer_number:
+            print("Too small!")
         else:
-            print("You win!")
-            break
-    except ValueError:
-        print("It's not a number!\n")
+            print("Too big!")
+        guess = lucky_guess()
+    print("You win!")
+
+
+def lucky_guess():
+    while True:
+        try:
+            user_guess = int(input("Guess the number: \n"))
+            return user_guess
+        except ValueError:
+            print("It's not a number!\n")
+
+
+new_game()
